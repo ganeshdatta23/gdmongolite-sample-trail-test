@@ -3,7 +3,15 @@ from pydantic import ConfigDict
 db = DB()
 class Product(Schema):
     model_config = ConfigDict(arbitrary_types_allowed=True)
-    name: str
+    title: str
+    description: str
     price: Positive()
-    email: Email
-    tags: list[str] = []
+    discountPercentage: float
+    rating: float
+    stock: int
+    brand: str
+    category: str
+    thumbnail: str
+    images: list[str] = []
+    email: Email # Keeping this for now, though not in DummyJSON directly
+    tags: list[str] = [] # Keeping this for now, though not in DummyJSON directly
